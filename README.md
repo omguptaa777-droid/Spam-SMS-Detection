@@ -226,7 +226,7 @@ streamlit run app.py
 
 The trained model is hosted separately on Hugging Face because it exceeds GitHub's file size limit.
 
-> Add your Hugging Face model link here.
+> https://huggingface.co/Om-Gupta/spam-sms-classifier-model
 
 ---
 

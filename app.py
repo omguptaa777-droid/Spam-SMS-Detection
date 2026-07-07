@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import joblib
+from huggingface_hub import hf_hub_download
 import nltk
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
@@ -30,8 +31,20 @@ def transform_text(msg):
 
     return ' '.join(words)
 
-tfidf = pickle.load(open('vectorizer2.pkl', 'rb'))
-model = joblib.load("model2.joblib")
+@st.cache_resource
+def load_model():
+    model_path = hf_hub_download(
+        repo_id="Om-Gupta/spam-sms-classifier-model",
+        filename="model2.joblib"
+    )
+    return joblib.load(model_path)
+
+@st.cache_resource
+def load_vectorizer():
+    return  pickle.load(open('vectorizer2.pkl', 'rb'))
+
+model = load_model()
+tfidf = load_vectorizer()
 
 st.title("📩 Spam SMS Detector")
 
