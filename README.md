@@ -8,7 +8,7 @@ The project follows a complete end-to-end machine learning pipeline, starting fr
 
 ## 🚀 Demo
 
-> Add your deployed Streamlit/Hugging Face link here.
+> https://spam-sms-detection-5a5h7cv7qzkv2yzoxvhmau.streamlit.app/
 
 ---
 
